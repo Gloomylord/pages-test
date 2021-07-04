@@ -5,6 +5,30 @@
     <title>2</title>
 </head>
 <body>
-<script></script>
+<script>
+    function isCorrect(str) {
+        const map = {'{': '}', '[': ']', '(': ')'};
+        const open = Object.keys(map);
+        const close = Object.values(map);
+        const arr = [];
+        for (let i = 0; i < str.length; i++) {
+            open.forEach(value => {
+                if (str[i] === value) {
+                    arr.push(str[i]);
+                }
+            });
+            close.forEach(value => {
+                if (value === str[i]) {
+                    if (arr.length === 0 || map[arr[arr.length - 1]] !== str[i]) {
+                        return false;
+                    }
+                    arr.pop();
+                }
+            });
+        }
+        if (arr.length > 0) return false;
+        return true;
+    }
+</script>
 </body>
 </html>
