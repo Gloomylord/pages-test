@@ -7,24 +7,21 @@
 <body>
 <script>
     function isCorrect(str) {
-        const map = {'{': '}', '[': ']', '(': ')'};
-        const open = Object.keys(map);
-        const close = Object.values(map);
+        const mapOpen = {'{': '}', '[': ']', '(': ')'};
+        // const mapClose = {'}': '{', ']': '[', ')': '('};
+        const openSet = new Set(['{', '[', '(']);
+        const closeSet = new Set(['}', ']', ')']);
         const arr = [];
         for (let i = 0; i < str.length; i++) {
-            open.forEach(value => {
-                if (str[i] === value) {
-                    arr.push(str[i]);
+            if (openSet.has(str[i])) {
+                arr.push(str[i]);
+            }
+            if (closeSet.has(str[i])) {
+                if (arr.length === 0 || mapOpen[arr[arr.length - 1]] !== str[i]) {
+                    return false;
                 }
-            });
-            close.forEach(value => {
-                if (value === str[i]) {
-                    if (arr.length === 0 || map[arr[arr.length - 1]] !== str[i]) {
-                        return false;
-                    }
-                    arr.pop();
-                }
-            });
+                arr.pop();
+            }
         }
         if (arr.length > 0) return false;
         return true;
