@@ -8,7 +8,7 @@
 <script>
     function primeNumbers(n) {
         const arr = [2];
-        main: for (let i = 3; i <= n; i += 2) {
+        main: for (let i = 3; i <= Math.sqrt(n); i += 2) {
             for (let j = 0; j < arr.length; j++) {
                 if (i % arr[j] === 0) {
                     continue main;
