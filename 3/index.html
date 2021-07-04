@@ -5,6 +5,46 @@
     <title>3</title>
 </head>
 <body>
-<script></script>
+<script>
+    const obj = {
+        value: 0,
+        children: [
+            {
+                value: 1,
+                children: [{
+                    value: 2,
+                    children: null,
+                }]
+            },
+            {
+                value: 3,
+                children: [
+                    {
+                        value: 4,
+                        children: null,
+                    },
+                    {
+                        value: 5,
+                        children: null,
+                    }]
+            },
+            {
+                value: 7,
+                children: [{
+                    value: 8,
+                    children: null,
+                }]
+            }],
+    };
+
+    function f(obj) {
+        console.log(obj.value);
+        if(obj.children) {
+            for(let i = 0; i < obj.children.length; i ++) {
+                f(obj.children[i]);
+            }
+        }
+    }
+</script>
 </body>
 </html>
