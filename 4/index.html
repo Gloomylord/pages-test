@@ -9,8 +9,11 @@
     function primeNumbers(n) {
         if (n < 2) return [];
         const arr = [2];
-        main: for (let i = 3; i <= Math.sqrt(n); i += 2) {
-            for (let j = 0; j < arr.length; j++) {
+        main: for (let i = 3; i <= n; i += 2) {
+            inner: for (let j = 0; j < arr.length; j++) {
+                if (arr[j] > Math.sqrt(n)) {
+                    break inner;
+                }
                 if (i % arr[j] === 0) {
                     continue main;
                 }
