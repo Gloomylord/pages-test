@@ -5,6 +5,20 @@
     <title>Main</title>
 </head>
 <body>
-<script></script>
+<script>
+    const arr = [10, 2,45, 235];
+    function sort(array) {
+        const arr = [...array];
+        for(let i = 0; i < arr.length; i++){
+            for(let j = 0; j < arr.length; j++){
+                if ( arr[i] > arr[i + 1]){
+                    [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
+                }
+            }
+        }
+        return arr;
+    }
+    console.log(sort(arr));
+</script>
 </body>
 </html>
