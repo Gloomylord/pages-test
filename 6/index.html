@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6</title>
+</head>
+<body>
+<script>
+    let c = {next: null, value: 3};
+    let b =  {next: c, value: 2};
+    let a = {next: b, value: 1};
+    function invertList(start, prev) {
+        const next = start.next;
+        console.log(start.value);
+        if(prev){
+            start.next = prev;
+        } else {
+            start.next = null;
+        }
+        if (next) {
+            invertList(next, start);
+        }
+    }
+    invertList(a);
+</script>
+</body>
+</html>
