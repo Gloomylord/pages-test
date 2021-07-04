@@ -5,6 +5,25 @@
     <title>1</title>
 </head>
 <body>
-<script></script>
+<script>
+    function sort(array) {
+        let arr = [...array];
+        const res = [];
+        for (let i = 0; i < array.length; i++) {
+            let max = arr[0];
+            let maxIndex = 0;
+            for (let j = 0; j < arr.length; j++) {
+                if (max < arr[j]) {
+                    max = arr[j];
+                    maxIndex = j;
+                }
+            }
+            arr.splice(maxIndex, 1);
+            res.push(max);
+        }
+        return res;
+    }
+
+</script>
 </body>
 </html>
