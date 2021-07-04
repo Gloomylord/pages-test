@@ -9,16 +9,16 @@
     let c = {next: null, value: 3};
     let b =  {next: c, value: 2};
     let a = {next: b, value: 1};
-    function invertList(start, prev) {
-        const next = start.next;
-        console.log(start.value);
-        if(prev){
-            start.next = prev;
-        } else {
-            start.next = null;
-        }
-        if (next) {
-            invertList(next, start);
+    function invertList(start) {
+        let next;
+        let item = start;
+        let prev = null;
+        while (item) {
+            console.log(item.value);
+            next = item.next;
+            item.next = prev;
+            prev = item;
+            item = next;
         }
     }
     invertList(a);
